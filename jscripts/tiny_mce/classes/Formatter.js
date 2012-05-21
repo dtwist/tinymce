@@ -49,7 +49,7 @@
 			getContentEditable = dom.getContentEditable;
 
 		function isArray(obj) {
-			return obj instanceof Array;
+			return tinymce.isArray(obj);
 		};
 
 		function getParents(node, selector) {

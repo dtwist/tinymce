@@ -39,7 +39,7 @@
 		}
 
 		if (t == 'object') {
-			if (o.hasOwnProperty && o instanceof Array) {
+			if (o.hasOwnProperty && tinymce.isArray(o)) {
 					for (i=0, v = '['; i<o.length; i++)
 						v += (i > 0 ? ',' : '') + serialize(o[i], quote);
 

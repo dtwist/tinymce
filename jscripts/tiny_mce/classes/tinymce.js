@@ -244,7 +244,7 @@
 			if (!t)
 				return o !== undef;
 
-			if (t == 'array' && (o.hasOwnProperty && o instanceof Array))
+			if (t == 'array' && (o.hasOwnProperty && tinymce.isArray(o)))
 				return true;
 
 			return typeof(o) == t;
@@ -390,6 +390,17 @@
 			}
 
 			return -1;
+		},
+
+		/**
+		 * Check whether an object is an Array (made cross-frame safe by using "The Miller Device" See http://bit.ly/bLxAbO for a good explanation)
+		 *
+		 * @method isArray
+		 * @param {Object} o object to examine.
+		 * @return {Boolean} true/false if the object is an array.
+		 */
+		isArray : function(o) {
+			return Object.prototype.toString.call(o) === '[object Array]';
 		},
 
 		/**

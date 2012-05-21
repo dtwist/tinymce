@@ -514,7 +514,7 @@ tinymce.dom = {};
 			}
 
 			// Old API supported multiple targets
-			if (target && target instanceof Array) {
+			if (target && tinymce.isArray(target)) {
 				var i = target;
 
 				while (i--) {
@@ -529,7 +529,7 @@ tinymce.dom = {};
 				events = "ready";
 			}
 
-			return self.bind(target, events instanceof Array ? events.join(' ') : events, func, scope);
+			return self.bind(target, tinymce.isArray(events) ? events.join(' ') : events, func, scope);
 		};
 
 		self.remove = function(target, events, func, scope) {
@@ -543,7 +543,7 @@ tinymce.dom = {};
 			}
 
 			// Old API supported multiple targets
-			if (target instanceof Array) {
+			if (tinymce.isArray(target)) {
 				var i = target.length;
 
 				while (i--) {
@@ -553,7 +553,7 @@ tinymce.dom = {};
 				return self;
 			}
 
-			return self.unbind(target, events instanceof Array ? events.join(' ') : events, func);
+			return self.unbind(target, tinymce.isArray(events) ? events.join(' ') : events, func);
 		};
 
 		self.clear = function(target) {
