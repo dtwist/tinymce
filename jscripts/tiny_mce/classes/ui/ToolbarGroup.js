@@ -10,7 +10,7 @@
 
 (function(tinymce) {
 // Shorten class names
-var dom = tinymce.DOM, each = tinymce.each, Event = tinymce.dom.Event;
+var dom = parent.tinymce.DOM, each = tinymce.each, Event = parent.tinymce.dom.Event;
 /**
  * This class is used to group a set of toolbars together and control the keyboard navigation and focus.
  *

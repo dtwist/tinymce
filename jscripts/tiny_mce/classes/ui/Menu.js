@@ -9,7 +9,7 @@
  */
 
 (function(tinymce) {
-	var is = tinymce.is, DOM = tinymce.DOM, each = tinymce.each, walk = tinymce.walk;
+	var is = tinymce.is, DOM = parent.tinymce.DOM, each = tinymce.each, walk = parent.tinymce.walk;
 
 	/**
 	 * This class is base class for all menu types like DropMenus etc. This class should not

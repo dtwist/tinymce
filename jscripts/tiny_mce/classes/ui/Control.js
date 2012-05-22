@@ -10,7 +10,7 @@
 
 (function(tinymce) {
 	// Shorten class names
-	var DOM = tinymce.DOM, is = tinymce.is;
+	var DOM = parent.tinymce.DOM, is = tinymce.is;
 
 	/**
 	 * This class is the base class for all controls like buttons, toolbars, containers. This class should not

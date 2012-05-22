@@ -9,7 +9,7 @@
  */
 
 (function(tinymce) {
-	var DOM = tinymce.DOM, Event = tinymce.dom.Event, each = tinymce.each, Dispatcher = tinymce.util.Dispatcher, undef;
+	var DOM = parent.tinymce.DOM, Event = parent.tinymce.dom.Event, each = tinymce.each, Dispatcher = tinymce.util.Dispatcher, undef;
 
 	/**
 	 * This class is used to create list boxes/select list. This one will generate

@@ -9,7 +9,7 @@
  */
 
 (function(tinymce) {
-	var DOM = tinymce.DOM, Event = tinymce.dom.Event, each = tinymce.each;
+	var DOM = parent.tinymce.DOM, Event = parent.tinymce.dom.Event, each = tinymce.each;
 
 	/**
 	 * This class is used to create a split button. A button with a menu attached to it.

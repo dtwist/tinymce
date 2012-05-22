@@ -9,7 +9,7 @@
  */
 
 (function(tinymce) {
-	var is = tinymce.is, DOM = tinymce.DOM, each = tinymce.each, Event = tinymce.dom.Event, Element = tinymce.dom.Element;
+	var is = tinymce.is, DOM = parent.tinymce.DOM, each = tinymce.each, Event = parent.tinymce.dom.Event, Element = parent.tinymce.dom.Element;
 
 	/**
 	 * This class is used to create drop menus, a drop menu can be a
@@ -453,7 +453,7 @@
 			if (s.icon_src)
 				DOM.add(ic, 'img', {src : s.icon_src});
 
-			n = DOM.add(n, s.element || 'span', {'class' : 'mceText', title : o.settings.title}, o.settings.title);
+			n = DOM.add(n, s.element || 'span', {'class' : 'mceText'}, o.settings.title);
 
 			if (o.settings.style) {
 				if (typeof o.settings.style == "function")

@@ -9,7 +9,7 @@
  */
 
 (function(tinymce) {
-	var DOM = tinymce.DOM;
+	var DOM = parent.tinymce.DOM, Event = parent.tinymce.dom.Event;
 
 	/**
 	 * This class is used to create a UI button. A button is basically a link
@@ -67,12 +67,12 @@
 			// In IE a large image that occupies the entire editor area will be deselected when a button is clicked, so
 			// need to keep the selection in case the selection is lost
 			if (tinymce.isIE && t.editor) {
-				tinymce.dom.Event.add(t.id, 'mousedown', function(e) {
+				Event.add(t.id, 'mousedown', function(e) {
 					var nodeName = t.editor.selection.getNode().nodeName;
 					imgBookmark = nodeName === 'IMG' ? t.editor.selection.getBookmark() : null;
 				});
 			}
-			tinymce.dom.Event.add(t.id, 'click', function(e) {
+			Event.add(t.id, 'click', function(e) {
 				if (!t.isDisabled()) {
 					// restore the selection in case the selection is lost in IE
 					if (tinymce.isIE && t.editor && imgBookmark !== null) {
@@ -81,7 +81,7 @@
 					return s.onclick.call(s.scope, e);
 				}
 			});
-			tinymce.dom.Event.add(t.id, 'keyup', function(e) {
+			Event.add(t.id, 'keyup', function(e) {
 				if (!t.isDisabled() && e.keyCode==tinymce.VK.SPACEBAR)
 					return s.onclick.call(s.scope, e);
 			});

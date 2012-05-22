@@ -9,7 +9,7 @@
  */
 
 (function(tinymce) {
-	var Event = tinymce.dom.Event, each = tinymce.each;
+	var Event = parent.tinymce.dom.Event, each = tinymce.each;
 
 	/**
 	 * This class provides basic keyboard navigation using the arrow keys to children of a component.
@@ -40,7 +40,7 @@
 					excludeFromTabOrder = settings.excludeFromTabOrder,
 					itemFocussed, itemBlurred, rootKeydown, rootFocussed, focussedId;
 
-			dom = dom || tinymce.DOM;
+			dom = dom || parent.tinymce.DOM;
 
 			itemFocussed = function(evt) {
 				focussedId = evt.target.id;
