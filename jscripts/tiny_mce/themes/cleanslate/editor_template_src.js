@@ -25,7 +25,7 @@
 			paste : ['paste_desc', 'Paste'],
 			undo : ['undo_desc', 'Undo'],
 			redo : ['redo_desc', 'Redo'],
-			link : ['link_desc', 'mceLink'],
+			link : ['link_desc', 'mcePwlLink'],
 			unlink : ['unlink_desc', 'unlink'],
 			image : ['image_desc', 'mceImage'],
 			cleanup : ['cleanup_desc', 'mceCleanup'],

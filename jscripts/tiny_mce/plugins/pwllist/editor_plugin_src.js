@@ -159,7 +159,7 @@
 
 		getInfo : function() {
 			return {
-				longname : 'PWL lists',
+				longname : 'PWL CMS lists',
 				author : 'Prescientware, LLC',
 				authorurl : 'http://prescientware.com',
 				infourl : 'http://prescientware.com/',
