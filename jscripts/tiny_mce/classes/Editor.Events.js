@@ -836,6 +836,16 @@
 			self.nodeChanged();
 		}
 
+		function recordMouseDown() {
+			self.mouseClickedInEditor = true;
+		}
+		function validateMouseUp() {
+			if (self.mouseClickedInEditor === true) {
+				delete self.mouseClickedInEditor;
+				nodeChanged();
+			}
+		}
+
 		// Add DOM events
 		each(nativeToDispatcherMap, function(dispatcherName, nativeName) {
 			var root = settings.content_editable ? self.getBody() : self.getDoc();
@@ -869,8 +879,9 @@
 			dom.bind(self.getBody(), 'keydown', doOperaFocus);
 		}
 
-		// Add node change handler
-		self.onMouseUp.add(nodeChanged);
+		// Add node change handler (only when mousedown andmouseup are registered in editor)
+		self.onMouseDown.add(recordMouseDown);
+		self.onMouseUp.add(validateMouseUp);
 
 		self.onKeyUp.add(function(ed, e) {
 			var keyCode = e.keyCode;
