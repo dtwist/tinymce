@@ -27,7 +27,7 @@
 			redo : ['redo_desc', 'Redo'],
 			link : ['link_desc', 'mcePwlLink'],
 			unlink : ['unlink_desc', 'unlink'],
-			image : ['image_desc', 'mceImage'],
+			image : ['image_desc', 'mcePwlImage'],
 			cleanup : ['cleanup_desc', 'mceCleanup'],
 			help : ['help_desc', 'mceHelp'],
 			code : ['code_desc', 'mceCodeEditor'],
@@ -64,7 +64,7 @@
 
 			// Default settings
 			t.settings = s = extend({
-				theme_buttons : "bold,italic,forecolor,|,justifyleft,justifycenter,justifyright,justifyfull,|,bullist,numlist,outdent,indent,|,link,unlink",
+				theme_buttons : "bold,italic,forecolor,|,justifyleft,justifycenter,justifyright,justifyfull,|,bullist,numlist,outdent,indent,|,link,image",
 				//theme_buttons1 : "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,styleselect,formatselect",
 				//theme_buttons2 : "bullist,numlist,|,outdent,indent,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code",
 				//theme_buttons3 : "hr,removeformat,visualaid,|,sub,sup,|,charmap",
@@ -72,8 +72,6 @@
 				theme_fonts : "Andale Mono=andale mono,times;Arial=arial,helvetica,sans-serif;Arial Black=arial black,avant garde;Book Antiqua=book antiqua,palatino;Comic Sans MS=comic sans ms,sans-serif;Courier New=courier new,courier;Georgia=georgia,palatino;Helvetica=helvetica;Impact=impact,chicago;Symbol=symbol;Tahoma=tahoma,arial,helvetica,sans-serif;Terminal=terminal,monaco;Times New Roman=times new roman,times;Trebuchet MS=trebuchet ms,geneva;Verdana=verdana,geneva;Webdings=webdings;Wingdings=wingdings,zapf dingbats",
 				theme_font_selector : "span"
 			}, ed.settings);
-
-	    //////states = ['Bold', 'Italic', 'Underline', 'Strikethrough', 'InsertUnorderedList', 'InsertOrderedList'];
 
 			// Init editor
 			ed.onInit.add(function() {
