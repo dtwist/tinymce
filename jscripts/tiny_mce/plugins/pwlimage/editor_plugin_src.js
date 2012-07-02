@@ -23,16 +23,11 @@
 					return;
 				}
 
-				if (el && el.nodeName == 'IMG') {
-					current_values = {
-						src     : el.src,
-						alt     : el.alt,
-						padding : ed.dom.getStyle(el, 'padding')
-					};
-					App.toolbar._actionImageEdit(t, current_values);
-				} else {
-					App.toolbar._actionImageSelect(t, null);
-				}
+				var maxW = $(ed.getElement()).width();
+				var maxH = 0;
+				parent.imageBrowser(function(imageData){
+					App.toolbar._actionInsertImage(imageData, maxW, maxH);
+				});
 
 			});
 
