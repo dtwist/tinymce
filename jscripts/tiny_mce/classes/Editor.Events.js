@@ -847,7 +847,7 @@
 		function validateMouseUp() {
 			if (self.mouseClickedInEditor === true) {
 				delete self.mouseClickedInEditor;
-				nodeChanged();
+				self.nodeChanged();
 			}
 		}
 
