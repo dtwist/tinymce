@@ -54,7 +54,7 @@
 				author : 'Prescientware, LLC',
 				authorurl : 'http://prescientware.com',
 				version : "0.1"
-			}
+			};
 		},
 
 		init : function(ed, url) {
@@ -204,7 +204,7 @@
 					if (func(parents[i]))
 						return parents[i];
 				}
-			};
+			}
 
 			//cm.setActive('visualaid', ed.hasVisual);
 			////t._updateUndoStatus(ed);
@@ -321,7 +321,7 @@
 							c.displayColor(color);
 						}
 					}
-				};
+				}
 
 				updateColor('forecolor', fc);
 				updateColor('backcolor', bc);
@@ -401,7 +401,7 @@
 						ti += 'id: ' + v + ' ';
 
 					if (v = n.className) {
-						v = v.replace(/\b\s*(webkit|mce|Apple-)\w+\s*\b/g, '')
+						v = v.replace(/\b\s*(webkit|mce|Apple-)\w+\s*\b/g, '');
 
 						if (v) {
 							ti += 'class: ' + v + ' ';
@@ -438,7 +438,7 @@
 					}, DOM);
 				}
 			}
-		},
+		}
 
 	});
 
