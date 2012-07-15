@@ -350,7 +350,7 @@
 				return true;
 			}
 
-			startElement = selection.getStart()
+			startElement = selection.getStart();
 			endElement = selection.getEnd();
 
 			// Disable all key presses in contentEditable=false except delete or backspace
