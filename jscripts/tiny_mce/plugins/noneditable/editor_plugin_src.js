@@ -421,8 +421,8 @@
 
 					if (keyCode == VK.BACKSPACE || keyCode == VK.DELETE) {
 						if (!canDelete(keyCode == VK.BACKSPACE)) {
-						e.preventDefault();
-						return false;
+							e.preventDefault();
+							return false;
 						} else if(nonEditableParent){
 							dom.remove(nonEditableParent);
 						}
