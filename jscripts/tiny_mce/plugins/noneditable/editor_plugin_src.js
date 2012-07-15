@@ -257,8 +257,18 @@
 			};
 
 			function positionCaretOnElement(element, start) {
+				// IE won't let us get out of the noneditable element sometimes, so we'll insert a dummy node before moving the selcection.
+				if (tinymce.isIE) {
+					var container = element.parentNode;
+					var marker = document.createElement('div');
+					marker.innerHTML = '<span>\uFEFF</span>';
+					container.insertBefore(marker, element);
+				}
 				selection.select(element);
 				selection.collapse(start);
+				if (tinymce.isIE) {
+					dom.remove(marker);
+				}
 			}
 
 			function canDelete(backspace) {
