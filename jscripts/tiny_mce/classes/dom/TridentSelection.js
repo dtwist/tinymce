@@ -39,6 +39,23 @@
 			children = parent.children;
 			endIndex = children.length - 1;
 
+			//console.log('before:'+
+			//						'\n compareEndPoints->StartToStart: '+ checkRng.compareEndPoints('StartToStart', rng)+
+			//						'\n compareEndPoints->StartToEnd: '+ checkRng.compareEndPoints('StartToEnd', rng)+
+			//						'\n compareEndPoints->EndToEnd: '+ checkRng.compareEndPoints('EndToEnd', rng)+
+			//						'\n compareEndPoints->EndToStart: '+ checkRng.compareEndPoints('EndToStart', rng)+
+			//						'\n parent:' +checkRng.parentElement().innerHTML+
+			//						'\n text: '+checkRng.text+
+			//						'\n htmltext: '+checkRng.htmlText+
+			//						'\n inRange: '+rng.inRange(checkRng)+
+			//						'\n isEqual: '+rng.isEqual(checkRng)+
+			//						'\n boundingLeft: '+checkRng.boundingLeft+
+			//						'\n boundingTop: '+checkRng.boundingTop+
+			//						'\n offsetLeft: '+checkRng.offsetLeft+
+			//						'\n offsetTop: '+checkRng.offsetTop+
+			//						''
+			//						);
+
 			// Perform a binary search for the position
 			while (startIndex <= endIndex) {
 				index = Math.floor((startIndex + endIndex) / 2);
@@ -64,10 +81,30 @@
 				if (!child) {
 					checkRng.moveToElementText(parent);
 					checkRng.collapse(true);
+					// IE8 (and other versions?) will sometimes set the parent of this collapsed range to the parent of the preceeding text node. Moving the selection forward and then back one character gets it working.
+					checkRng.move('character', 1);
+					checkRng.move('character', -1);
 					child = parent;
 					inside = true;
 				} else
 					checkRng.collapse(false);
+
+			//console.log('after:'+
+			//						'\n compareEndPoints->StartToStart: '+ checkRng.compareEndPoints('StartToStart', rng)+
+			//						'\n compareEndPoints->StartToEnd: '+ checkRng.compareEndPoints('StartToEnd', rng)+
+			//						'\n compareEndPoints->EndToEnd: '+ checkRng.compareEndPoints('EndToEnd', rng)+
+			//						'\n compareEndPoints->EndToStart: '+ checkRng.compareEndPoints('EndToStart', rng)+
+			//						'\n parent:' +checkRng.parentElement().innerHTML+
+			//						'\n text: '+checkRng.text+
+			//						'\n htmltext: '+checkRng.htmlText+
+			//						'\n inRange: '+rng.inRange(checkRng)+
+			//						'\n isEqual: '+rng.isEqual(checkRng)+
+			//						'\n boundingLeft: '+checkRng.boundingLeft+
+			//						'\n boundingTop: '+checkRng.boundingTop+
+			//						'\n offsetLeft: '+checkRng.offsetLeft+
+			//						'\n offsetTop: '+checkRng.offsetTop+
+			//						''
+			//						);
 
 				// Walk character by character in text node until we hit the selected range endpoint, hit the end of document or parent isn't the right one
 				// We need to walk char by char since rng.text or rng.htmlText will trim line endings
@@ -170,7 +207,7 @@
 
 					if (!sibling)
 						return domRange[start ? 'setStartBefore' : 'setEndBefore'](container);
-
+					
 					// If there isn't any text to loop then use the first position
 					if (!offset) {
 						if (container.nodeType == 3)
@@ -450,16 +487,16 @@
 					if (tinymce.isIE8) {
 						// IE8 controlRange refuses to select the requested element, instead selecting the editor container, so we'll fall through to using a textRange below
 					} else {
-					try {
-						ctrlRng = body.createControlRange();
-						ctrlRng.addElement(startContainer.childNodes[startOffset]);
-						ctrlRng.select();
-						return;
-					} catch (ex) {
-						// Ignore
+						try {
+							ctrlRng = body.createControlRange();
+							ctrlRng.addElement(startContainer.childNodes[startOffset]);
+							ctrlRng.select();
+							return;
+						} catch (ex) {
+							// Ignore
+						}
 					}
 				}
-			}
 			}
 
 			// Set start/end point of selection
