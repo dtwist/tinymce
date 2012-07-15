@@ -446,6 +446,10 @@
 				}
 
 				if (startOffset == endOffset - 1) {
+					
+					if (tinymce.isIE8) {
+						// IE8 controlRange refuses to select the requested element, instead selecting the editor container, so we'll fall through to using a textRange below
+					} else {
 					try {
 						ctrlRng = body.createControlRange();
 						ctrlRng.addElement(startContainer.childNodes[startOffset]);
@@ -455,6 +459,7 @@
 						// Ignore
 					}
 				}
+			}
 			}
 
 			// Set start/end point of selection
