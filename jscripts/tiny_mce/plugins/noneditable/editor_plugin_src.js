@@ -354,8 +354,9 @@
 				e.preventDefault();
 
 				// Arrow left/right select the element and collapse left/right
-				if (keyCode == VK.LEFT || keyCode == VK.RIGHT) {
-					var left = keyCode == VK.LEFT;
+				if (keyCode == VK.LEFT || keyCode == VK.RIGHT || keyCode == VK.UP || keyCode == VK.DOWN) {
+					//breakhere();
+					var left = (keyCode == VK.LEFT || keyCode == VK.UP) ;
 					// If a block element find previous or next element to position the caret
 					if (ed.dom.isBlock(nonEditableParent)) {
 						var targetElement = left ? nonEditableParent.previousSibling : nonEditableParent.nextSibling;
@@ -368,17 +369,17 @@
 				}
 			} else {
 				// Is arrow left/right, backspace or delete
-				if (keyCode == VK.LEFT || keyCode == VK.RIGHT || keyCode == VK.BACKSPACE || keyCode == VK.DELETE) {
+				if (keyCode == VK.LEFT || keyCode == VK.RIGHT || keyCode == VK.UP || keyCode == VK.DOWN || keyCode == VK.BACKSPACE || keyCode == VK.DELETE) {
 					caretContainer = getParentCaretContainer(startElement);
 					if (caretContainer) {
 						// Arrow left or backspace
-						if (keyCode == VK.LEFT || keyCode == VK.BACKSPACE) {
+						if (keyCode == VK.LEFT || keyCode == VK.UP || keyCode == VK.BACKSPACE) {
 							nonEditableParent = getNonEmptyTextNodeSibling(caretContainer, true);
 
 							if (nonEditableParent && getContentEditable(nonEditableParent) === "false") {
 								e.preventDefault();
 
-								if (keyCode == VK.LEFT) {
+								if (keyCode == VK.LEFT || keyCode == VK.UP) {
 									positionCaretOnElement(nonEditableParent, true);
 								} else {
 									dom.remove(nonEditableParent);
@@ -390,13 +391,13 @@
 						}
 
 						// Arrow right or delete
-						if (keyCode == VK.RIGHT || keyCode == VK.DELETE) {
+						if (keyCode == VK.RIGHT || keyCode == VK.DOWN || keyCode == VK.DELETE) {
 							nonEditableParent = getNonEmptyTextNodeSibling(caretContainer);
 
 							if (nonEditableParent && getContentEditable(nonEditableParent) === "false") {
 								e.preventDefault();
 
-								if (keyCode == VK.RIGHT) {
+								if (keyCode == VK.RIGHT || keyCode == VK.DOWN) {
 									positionCaretOnElement(nonEditableParent, false);
 								} else {
 									dom.remove(nonEditableParent);
